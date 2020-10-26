@@ -3,24 +3,17 @@
     namespace BrokenTitan\NativeSessionDriver\Providers;
 
     use BrokenTitan\NativeSessionDriver\Extensions\NativeSessionHandler;
+    use Illuminate\Support\Facades\Session;
     use Illuminate\Support\ServiceProvider;
 
     class NativeSessionDriverServiceProvider extends ServiceProvider {
         /**
-         * @method register
+         * @method boot
          * @return void
          */
-        public function register() {
-            $this->app["session"]->extend("native", function($app) {
-                return new NativeSessionHandler($app["config"]->get("session.namespace"));
+        public function boot() {
+            Session::extend("native", function($app) {
+                return new NativeSessionHandler(config("session.namespace"));
             });
-        }
-
-        /**
-         * @method provides
-         * @return array
-         */
-        public function provides() {
-            return [NativeSessionDriver::class];
         }
     }
