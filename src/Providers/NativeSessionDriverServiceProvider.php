@@ -2,6 +2,7 @@
 
     namespace BrokenTitan\NativeSessionDriver\Providers;
 
+    use BrokenTitan\NativeSessionDriver\Extensions\NativeSessionHandler;
     use Illuminate\Support\ServiceProvider;
 
     class NativeSessionDriverServiceProvider extends ServiceProvider {
