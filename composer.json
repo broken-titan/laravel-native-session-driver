@@ -1,0 +1,28 @@
+{
+    "name": "broken-titan/laravel-native-session-driver",
+    "description": "Native PHP session driver for Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marshall Miller",
+            "email": "contact@marshall-miller.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": "^5.0",
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BrokenTitan\\NativeSessionDriver\\Providers\\NativeSessionDriverServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "BrokenTitan\\NativeSessionDriver\\": "src"
+        }
+    }
+}
