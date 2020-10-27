@@ -4,11 +4,14 @@
 
 	class NativeSessionHandler implements \SessionHandlerInterface {
 		protected array $data;
+		public string $session_id;
 
 		public function __construct(?string $namespace = "laravel")  {
 	        if (session_status() == PHP_SESSION_NONE) {
 				session_start();
 			}
+
+			$this->session_id = session_id();
 
 			if (!empty($namespace)) {
 				if(!isset($_SESSION[$namespace])) {
